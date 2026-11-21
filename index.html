@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f4">
+  <meta name="description" content="Formroom 是一间开放的界面设计资料室。探索原创的产品概念、交互流程与逐屏设计笔记。">
+  <title>Formroom 界面资料室</title>
+  <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">跳到内容</a>
+  <aside class="rail" aria-label="站点导航">
+    <a class="brand" href="./" aria-label="Formroom 首页">
+      <img class="brand-mark" src="./assets/mark.svg" width="32" height="32" alt="">
+      <span>formroom<span class="brand-dot">.</span></span>
+    </a>
+    <div class="rail-main">
+      <div class="rail-label">资料室</div>
+      <nav class="rail-nav" aria-label="资料室">
+        <a href="#explore" data-view="explore"><span data-icon="grid"></span>探索</a>
+        <a href="#patterns" data-view="patterns"><span data-icon="layers"></span>设计模式</a>
+        <a href="#notes" data-view="notes"><span data-icon="book"></span>研究笔记</a>
+      </nav>
+      <div class="rail-label rail-label-personal">我的空间</div>
+      <nav class="rail-nav" aria-label="我的空间">
+        <a href="#saved" data-view="saved"><span data-icon="bookmark"></span>我的收藏<span class="saved-count" hidden></span></a>
+      </nav>
+    </div>
+    <div class="rail-bottom">
+      <a href="#about" data-about><span data-icon="info"></span>关于资料室</a>
+      <div class="rail-edition"><span></span> FORMROOM / VOL. 01</div>
+    </div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <div class="crumb"><span>资料室</span><span aria-hidden="true">/</span><strong id="crumb-current">探索</strong></div>
+        <a class="brand mobile-brand" href="./" aria-label="Formroom 首页">
+          <img class="brand-mark" src="./assets/mark.svg" width="28" height="28" alt="">
+          <span>formroom<span class="brand-dot">.</span></span>
+        </a>
+        <button class="search-trigger" type="button" data-search>
+          <span data-icon="search"></span><span>搜索界面、模式或产品</span><kbd>Ctrl K</kbd>
+        </button>
+      </div>
+    </header>
+    <nav class="mobile-nav" aria-label="资料室导航">
+      <a href="#explore" data-view="explore">探索</a><a href="#patterns" data-view="patterns">设计模式</a><a href="#notes" data-view="notes">研究笔记</a><a href="#saved" data-view="saved">我的收藏<span class="saved-count" hidden></span></a>
+    </nav>
+    <main id="main" class="shell" tabindex="-1">
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="hero-kicker"><span></span> INTERFACE FIELD NOTES <span class="hero-index">/ 01</span></div>
+          <h1 id="hero-title">好界面，<br>有迹可循。</h1>
+          <p>一间开放的界面设计资料室。<br class="hero-break">从一张屏幕开始，拆解每一步设计决策。</p>
+          <a class="dark-button" href="#library" data-jump>探索资料库 <span data-icon="arrow-down"></span></a>
+        </div>
+        <div class="hero-art" id="hero-art" aria-hidden="true"></div>
+        <div class="hero-coordinate" aria-hidden="true">FORMROOM / FIELD COLLECTION</div>
+      </section>
+      <section class="library" id="library" aria-labelledby="section-title">
+        <div class="section-heading">
+          <div><h2 id="section-title">探索界面</h2><p id="section-intro">从原创产品案例中，找到下一步的设计灵感。</p></div>
+          <button type="button" id="shuffle" class="outline-button"><span data-icon="shuffle"></span> 随机一例</button>
+        </div>
+        <div id="filters"></div>
+        <div id="result-toolbar" class="result-toolbar" hidden>
+          <span id="result-count" aria-live="polite"></span>
+          <button class="text-button" type="button" id="clear-query" hidden>清除搜索 <span data-icon="x"></span></button>
+        </div>
+        <div id="results"></div>
+        <noscript><p>开启 JavaScript 后即可浏览案例、搜索和收藏。</p></noscript>
+      </section>
+    </main>
+    <footer class="site-footer shell" id="about">
+      <div class="signature-panel">
+        <div class="signature-copy">
+          <p class="signature-label"><span></span> A NOTE FROM FORMROOM</p>
+          <h2>持续观察，<br>保持好奇。</h2>
+          <p>Formroom 收录原创产品概念与界面拆解。<br>为每一次从「为什么」开始的设计。</p>
+        </div>
+        <div class="signature-lockup" role="img" aria-label="Formroom 手写签名">
+          <img src="./assets/signature.svg" width="510" height="172" alt="">
+          <span>YOURS IN GOOD FORM.</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Formroom · 界面资料室</span>
+        <div><a href="https://github.com/yunnre060214-sudo/Design" target="_blank" rel="noopener noreferrer">GitHub <span data-icon="arrow-up-right"></span></a><a href="#top" data-top>返回顶部 <span data-icon="arrow-up"></span></a></div>
+      </div>
+    </footer>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-box">
+      <span data-icon="search"></span>
+      <label class="sr-only" for="search-input" id="search-title">搜索界面、模式或产品</label>
+      <input id="search-input" type="search" placeholder="搜索界面、模式或产品…" autocomplete="off">
+      <button type="button" class="key-button" data-close-search aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content" id="search-content"></div>
+    <div class="search-footer"><span><kbd>↑</kbd> <kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span></div>
+  </dialog>
+  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
+    <div id="detail-content"></div>
+    <div class="toast" id="detail-toast" role="status" hidden></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>
